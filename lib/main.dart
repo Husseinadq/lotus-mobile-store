@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 // import 'helper/dependencies.dart' as dep;
+import './view/Splash/splash_screen.dart';
 
 
 void main() async{
@@ -20,11 +21,11 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-     
+     fontFamily: 'BalooBhaijaan2',
         colorScheme: ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 0, 0, 0)),
         useMaterial3: true,
       ),
-      home: Container(),
+      home: SplashScreen(),
     );
   }
 }
