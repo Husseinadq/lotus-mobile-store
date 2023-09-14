@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:louts_mobile_store/view/home/home.dart';
 
 
 class AppConstants {
@@ -58,11 +59,7 @@ class AppConstants {
   static int PAGENUMBER = 0;
 
  static List<Widget> NAV_BAR_SCREEN = [
-      Container(
-        height: double.infinity,
-        width: double.maxFinite,
-        color: Colors.pink,
-      ),
+      HomeScreen(),
       Container(
         height: double.infinity,
         width: double.maxFinite,
