@@ -19,6 +19,7 @@ class AppDimensions {
   static double size10 = 10;
   static double size12 = 12;
   static double size14 = 14;
+  static double size15 = 15;
   static double size16 = 16;
   static double size18 = 18;
   static double size20 = 20;

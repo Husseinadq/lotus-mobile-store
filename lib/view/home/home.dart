@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:louts_mobile_store/widget/app_bar_widget.dart';
 import 'package:louts_mobile_store/widget/carousel_slider_widget.dart';
+import 'package:louts_mobile_store/widget/section_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -18,7 +19,11 @@ class _HomeScreenStateState extends State<HomeScreen> {
         child: Column(
           children: [
             AppBarWidget(),
-            CarouselSliderWidget(size: 200, autoplay: true)
+            CarouselSliderWidget(size: 200, autoplay: true),
+            SingleChildScrollView(
+              scrollDirection: Axis.vertical,child: Column(children: [
+              Section(title: 'New',)
+              ]),)
           ],
         ),
       ),
