@@ -56,14 +56,33 @@ class AppConstants {
 
   /// start google slidable bottum nav
   static int PAGENUMBER = 0;
-  static bool IS_FROM_OUT_ROUT = false;
-  static List<Widget> NAV_BAR_SCREEN = [
-    // HomeScreen(),
-    // CategoriesScreen(),
-    // CartScreen(),
-    // WishlistScreen(),
-    // ProfileScreen(),
-    // SubHomeScreen()
+
+ static List<Widget> NAV_BAR_SCREEN = [
+      Container(
+        height: double.infinity,
+        width: double.maxFinite,
+        color: Colors.pink,
+      ),
+      Container(
+        height: double.infinity,
+        width: double.maxFinite,
+        color: Colors.amber,
+      ),
+      Container(
+        height: double.infinity,
+        width: double.maxFinite,
+        color: Colors.blue,
+      ),
+      Container(
+        height: double.infinity,
+        width: double.maxFinite,
+        color: Colors.red,
+      ),
+      Container(
+        height: double.infinity,
+        width: double.maxFinite,
+        color: Colors.green,
+      ),
   ];
 
   /// end  google slidable bottum nav

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:louts_mobile_store/routes/route_app.dart';
 // import 'helper/dependencies.dart' as dep;
 import './view/Splash/splash_screen.dart';
 
@@ -22,10 +23,11 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
      fontFamily: 'BalooBhaijaan2',
-        colorScheme: ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 0, 0, 0)),
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 0, 0, 0)),
         useMaterial3: true,
       ),
       home: SplashScreen(),
+      getPages: RouteApp.routes,
     );
   }
 }

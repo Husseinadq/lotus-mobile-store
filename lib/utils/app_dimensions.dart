@@ -135,4 +135,5 @@ class AppDimensions {
   // static double mainCategorySectionHeight = height60;
   // static double expansionTileSection = height200;
 //########### start category screen dimensions ###########
+
 }
