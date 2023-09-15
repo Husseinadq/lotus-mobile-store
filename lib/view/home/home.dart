@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:louts_mobile_store/controller/category_controller.dart';
+import 'package:louts_mobile_store/utils/app_colors.dart';
 import 'package:louts_mobile_store/widget/app_bar_widget.dart';
 import 'package:louts_mobile_store/widget/carousel_slider_widget.dart';
+import 'package:louts_mobile_store/widget/category_listview_widget.dart';
 import 'package:louts_mobile_store/widget/section_widget.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -20,9 +25,29 @@ class _HomeScreenStateState extends State<HomeScreen> {
           children: [
             AppBarWidget(),
             CarouselSliderWidget(size: 200, autoplay: true),
+            FutureBuilder(
+                      future: Get.find<CategoryController>().getAllCategories(),
+                      builder: (context, snapshot) {
+                        if (snapshot.connectionState ==
+                            ConnectionState.waiting) {
+                          return Center(
+                            child: CircularProgressIndicator(
+                              color: AppColors.secondry,
+                            ),
+                          );
+                        }
+                        if (snapshot.hasError) {
+                          return Text("error");
+                        } else {
+                          return CategoryListView(
+                              categories: Get.find<CategoryController>()
+                                  .allCategoriesList);
+                        }
+                      }),
             SingleChildScrollView(
               scrollDirection: Axis.vertical,child: Column(children: [
-              Section(title: 'New',)
+              Section(title: 'New',),
+
               ]),)
           ],
         ),

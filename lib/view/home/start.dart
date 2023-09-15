@@ -15,14 +15,13 @@ class StartScreen extends StatefulWidget {
 class _StartScreenState extends State<StartScreen> {
   @override
   Widget build(BuildContext context) {
-    // GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
 
   
     return SafeArea(
       child: Scaffold(
         body: Container(child: AppConstants.NAV_BAR_SCREEN[AppConstants.PAGENUMBER]),
         bottomNavigationBar: CurvedNavigationBar(
-            // key: _bottomNavigationKey,
+            key: AppConstants.bottomNavigationKey,
             height: AppDimensions.height60,
             onTap: (index) {
               setState(() {

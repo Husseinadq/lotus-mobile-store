@@ -31,12 +31,12 @@ class AppBarWidget extends StatelessWidget {
                 //  Get.toNamed(RouteHelper.getSearchBar();
                  },
                 child: Container(
-                    margin: EdgeInsets.only(left: 5, top: 5),
+                    margin: EdgeInsets.only(left: 5, top: 5,right: 5),
                     padding: EdgeInsets.only(
                       left: 10,
                     ),
                     decoration: BoxDecoration(
-                        border: Border.all(color: AppColors.secondry),
+                        border: Border.all(color: AppColors.primary),
                         borderRadius: BorderRadius.circular(15)),
                     height: AppDimensions.height45,
                     width: double.maxFinite,

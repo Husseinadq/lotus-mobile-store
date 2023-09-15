@@ -1,5 +1,10 @@
+import 'package:curved_labeled_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:louts_mobile_store/view/cart/cart_screen.dart';
+import 'package:louts_mobile_store/view/category/category_screen.dart';
 import 'package:louts_mobile_store/view/home/home.dart';
+import 'package:louts_mobile_store/view/profile/profile_screen.dart';
+import 'package:louts_mobile_store/view/wishlist/wishlist_screen.dart';
 
 
 class AppConstants {
@@ -15,44 +20,44 @@ class AppConstants {
       "/api/v1/get-products?api_password=rpjiku3pYI01usjbvWqEa92Pfk6Nq";
 
   //#### start user url route
-  // static const String USER_LOG_IN = "/user/login";
-  // static const String USER_SIGN_UP = "/user/sign-up";
-  // static const String USER_LOG_OUT = "/user/logout";
-  // static const String USER_PROFILE = "/user/profile";
+  static const String USER_LOG_IN = "/user/login";
+  static const String USER_SIGN_UP = "/user/sign-up";
+  static const String USER_LOG_OUT = "/user/logout";
+  static const String USER_PROFILE = "/user/profile";
 
-  // static const String GET_STATES = "/user/get-states";
-  // static const String SET_USER_STATE = "/user/set-state";
+  static const String GET_STATES = "/user/get-states";
+  static const String SET_USER_STATE = "/user/set-state";
 
   //#### end user url route
 
   //#### start product url route
   // static const String SINGLE_CATEGORY_URL = "/get-single-category/";
-  // static const String GET_SEARCH_PRODUCTS_TITLES =
-  //     "/get-search-products-titles/";
-  // static const String GET_SEARCH_PRODUCTS = "/get-search-products/";
-  // static const String ALL_PRODUCT = "/get-products";
-  // static const String SINGLE_PRODUCT = "/get-single-product";
-  // static const String GET_PRODUCTS_FROM_BRAND = "/get-products-from-brand";
-  // static const String GET_PRODUCTS_FROM_CATEGORY = "/get-products-from-category";
+  static const String GET_SEARCH_PRODUCTS_TITLES =
+      "/get-search-products-titles/";
+  static const String GET_SEARCH_PRODUCTS = "/get-search-products/";
+  static const String ALL_PRODUCT = "/get-products";
+  static const String SINGLE_PRODUCT = "/get-single-product";
+  static const String GET_PRODUCTS_FROM_BRAND = "/get-products-from-brand";
+  static const String GET_PRODUCTS_FROM_CATEGORY = "/get-products-from-category";
   //#### end product url route
 
   // #### start category url route
-  // static const String SINGLE_CATEGORY_URL = "/get-single-category/";
-  // static const String ALL_CATEGORY_URL = "/get-main-category";
-  // static const String ALL_SUB_CATEGORIES_URL = "/get-sub-categories";
+  static const String SINGLE_CATEGORY_URL = "/get-single-category/";
+  static const String ALL_CATEGORY_URL = "/get-main-category";
+  static const String ALL_SUB_CATEGORIES_URL = "/get-sub-categories";
   //#### end category url route
 
   //#### start cart url route
-  // static const String ALL_CART_ITEMS = "/post-cart-items";
-  // static const String ADD_TO_CART = "/post-add-to-cart";
-  // static const String UPDATE_CART = "/post-update-cart-item";
-  // static const String REMOVE_CART_ITEM = "/post-delete-cart-item";
+  static const String ALL_CART_ITEMS = "/post-cart-items";
+  static const String ADD_TO_CART = "/post-add-to-cart";
+  static const String UPDATE_CART = "/post-update-cart-item";
+  static const String REMOVE_CART_ITEM = "/post-delete-cart-item";
   //#### end cart url route
 
   //#### start wishlist url route
-  // static const String ALL_WISHLIST_ITEMS = "/post-wishlist-items";
-  // static const String ADD_TO_WISHLIST = "/post-add-to-wishlist";
-  // static const String REMOVE_WISHLIST_ITEM = "/post-delete-wihslist-item";
+  static const String ALL_WISHLIST_ITEMS = "/post-wishlist-items";
+  static const String ADD_TO_WISHLIST = "/post-add-to-wishlist";
+  static const String REMOVE_WISHLIST_ITEM = "/post-delete-wihslist-item";
   //#### end wishlist url route
 
   /// start google slidable bottum nav
@@ -60,30 +65,14 @@ class AppConstants {
 
  static List<Widget> NAV_BAR_SCREEN = [
       HomeScreen(),
-      Container(
-        height: double.infinity,
-        width: double.maxFinite,
-        color: Colors.amber,
-      ),
-      Container(
-        height: double.infinity,
-        width: double.maxFinite,
-        color: Colors.blue,
-      ),
-      Container(
-        height: double.infinity,
-        width: double.maxFinite,
-        color: Colors.red,
-      ),
-      Container(
-        height: double.infinity,
-        width: double.maxFinite,
-        color: Colors.green,
-      ),
+      CategoryScreen(),
+      CartScreen(),WishlistScreen(),
+      ProfileScreen()
+      
   ];
 
   /// end  google slidable bottum nav
-  // static final navigationKey = GlobalKey<CurvedNavigationBarState>();
+   static GlobalKey<CurvedNavigationBarState> bottomNavigationKey = GlobalKey();
 
   // static final List<Photo> imagesTestSlider = [
   //   Photo(

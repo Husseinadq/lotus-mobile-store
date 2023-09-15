@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:louts_mobile_store/routes/route_app.dart';
-// import 'helper/dependencies.dart' as dep;
+import 'helper/dependencies.dart' as dep;
 import './view/Splash/splash_screen.dart';
 
 
 void main() async{
   WidgetsFlutterBinding
       .ensureInitialized(); //to be sure the lib is binding corectly
-  // await dep.init();
+  await dep.init();
   runApp(const MyApp());
 }
 

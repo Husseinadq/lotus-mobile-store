@@ -2,6 +2,11 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:louts_mobile_store/controller/cart_controller.dart';
+import 'package:louts_mobile_store/controller/category_controller.dart';
+import 'package:louts_mobile_store/controller/product_controller.dart';
+import 'package:louts_mobile_store/controller/user_controller.dart';
+import 'package:louts_mobile_store/controller/wishlist_controller.dart';
 import 'package:louts_mobile_store/utils/app_colors.dart';
 
 import '/routes/route_app.dart';
@@ -12,7 +17,13 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-     Timer(const Duration(milliseconds: 1000), () {
+    Get.find<UserController>().initialized;
+    Get.find<CategoryController>().initialized;
+     Get.find<ProductController>().initialized;
+    Get.find<CartController>().initialized;
+    Get.find<WishlistController>().initialized;
+
+    Timer(const Duration(milliseconds: 1000), () {
       Get.toNamed(RouteApp.getStart());
     });
     return Scaffold(
@@ -30,7 +41,7 @@ class SplashScreen extends StatelessWidget {
           SizedBox(
             height: AppDimensions.height20,
           ),
-           Text(
+          Text(
             "LOTUS SHOPE",
             style: TextStyle(
                 fontWeight: FontWeight.normal,
@@ -40,7 +51,9 @@ class SplashScreen extends StatelessWidget {
           SizedBox(
             height: AppDimensions.height40,
           ),
-          CircularProgressIndicator(color: AppColors.primary,)
+          CircularProgressIndicator(
+            color: AppColors.primary,
+          )
         ],
       )),
     );

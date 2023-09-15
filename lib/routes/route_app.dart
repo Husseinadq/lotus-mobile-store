@@ -9,17 +9,17 @@ class RouteApp {
   static const String _login = "/login";
   static const String _signup = "/signup";
 
-  // static const String _categories = "/categories";
-  // static const String _cart = "/cart";
-  // static const String _wishlist = "/wishlist";
-  // static const String _profile = "/profile";
+  static const String _categories = "/categories";
+  static const String _cart = "/cart";
+  static const String _wishlist = "/wishlist";
+  static const String _profile = "/profile";
 
-  // static const String _subHome = "/sub-home";
-  // static const String _personalDetail = "/personal-Detail";
-  // static const String _offers = "/offers";
-  // static const String _product = "/product";
-  // static const String _searchBar = "/search-bar";
-  // static const String _searchResult = "/search-result";
+  static const String _subHome = "/sub-home";
+  static const String _personalDetail = "/personal-Detail";
+  static const String _offers = "/offers";
+  static const String _product = "/product";
+  static const String _searchBar = "/search-bar";
+  static const String _searchResult = "/search-result";
 
   // static const String _productDetail = "/product-detail";
 
@@ -28,18 +28,18 @@ class RouteApp {
   static String getLogin() => '$_login';
   static String getSignUp() => '$_signup';
 
-  // static String getCategories() => '$categories';
-  // static String getCart() => '$cart';
-  // // static String getProfile(int index) => '$profile?index=$index';
-  // static String getProfile() => '$profile';
-  // static String getWishlist() => '$wishlist';
+  static String getCategories() => '$_categories';
+  static String getCart() => '$_cart';
+  // static String getProfile(int index) => '$profile?index=$index';
+  static String getProfile() => '$_profile';
+  static String getWishlist() => '$_wishlist';
 
-  // static String getSubHome() => '$subHome';
-  // static String getPersonalDetail() => '$personalDetail';
-  // static String getOffers() => '$offers';
-  // static String getProduct() => '$product';
-  // static String getSearchBar() => '$searchBar';
-  // static String getSearchResult() => '$searchResult';
+  static String getSubHome() => '$_subHome';
+  static String getPersonalDetail() => '$_personalDetail';
+  static String getOffers() => '$_offers';
+  static String getProduct() => '$_product';
+  static String getSearchBar() => '$_searchBar';
+  static String getSearchResult() => '$_searchResult';
 
   // static String getProductDetail(int productId) =>
   //     '$productDetail?productId=$productId&pageNumber=2';
