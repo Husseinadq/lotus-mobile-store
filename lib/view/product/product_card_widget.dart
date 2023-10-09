@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:louts_mobile_store/controller/product_controller.dart';
+import 'package:louts_mobile_store/model/product_model.dart';
 import 'package:louts_mobile_store/utils/app_colors.dart';
 import 'package:louts_mobile_store/utils/app_dimensions.dart';
 
 
 class ProductCard extends StatelessWidget {
-  // final Product product;
+  final Product product;
   ProductCard({super.key,
-  //  required this.product
+   required this.product
   });
 
   @override
@@ -46,12 +48,12 @@ class ProductCard extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10),
                     image: DecorationImage(
                         fit: BoxFit.cover,
-                        image: NetworkImage(    'https://cdn-images-1.medium.com/max/2000/1*GqdzzfB_BHorv7V2NV7Jgg.jpeg'
-                          // product.productImage!
+                        image: NetworkImage(    
+                          product.productImage!
                         ))),
               ),
-              // product.discount! > 0
-              true
+              product.discount! > 0
+              
                   ? Positioned(
                       top: 5,
                       child: Container(
@@ -66,8 +68,8 @@ class ProductCard extends StatelessWidget {
                                 topRight:
                                     Radius.circular(AppDimensions.size20))),
                         child: Text(
-                          '${20
-                            // product.discount!.toInt()
+                          '${
+                            product.discount!.toInt()
                           }% Off', // product discount
                           style: TextStyle(
                               color: AppColors.secondry,
@@ -105,8 +107,9 @@ class ProductCard extends StatelessWidget {
                   Container(
                       padding: EdgeInsets.all(5),
                       child: Text(
-                        // product.brandName.toString(), //product brand
-                        'addids',
+                        product.brandName.toString(),
+                        // //product brand
+                       
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
@@ -116,8 +119,9 @@ class ProductCard extends StatelessWidget {
                   Container(
                     margin: EdgeInsets.only(left: 2, bottom: 10),
                     child: Text(
-                      // product.name.toString(), //product name
-                      'car',
+                      product.name.toString(),
+                      // //product name
+                     
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
@@ -129,13 +133,13 @@ class ProductCard extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      // product.discount != 0.0
-                      true
+                      product.discount != 0.0
+                      
                           ? Expanded(
                               child: Container(
                                 child: Text(
-                                  "${20
-                                    // product.price
+                                  "${
+                                    product.price
                                   } USD",
                                   style: TextStyle(
                                       decoration: TextDecoration.lineThrough,
@@ -149,8 +153,8 @@ class ProductCard extends StatelessWidget {
                       Expanded(
                         child: Container(
                           child: Text(
-                            "${30
-                              // Get.find<ProductController>().priceAfterDiscount(product.price!, product.discount!)
+                            "${
+                              Get.find<ProductController>().priceAfterDiscount(product.price!, product.discount!)
                             } USD",
                             style: TextStyle(
                                 fontWeight: FontWeight.w600,

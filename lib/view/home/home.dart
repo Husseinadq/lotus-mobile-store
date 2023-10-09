@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:louts_mobile_store/controller/category_controller.dart';
+import 'package:louts_mobile_store/controller/product_controller.dart';
 import 'package:louts_mobile_store/utils/app_colors.dart';
 import 'package:louts_mobile_store/widget/app_bar_widget.dart';
 import 'package:louts_mobile_store/widget/carousel_slider_widget.dart';
@@ -18,6 +19,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenStateState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+    
     return SafeArea(
         child: Scaffold(
       body: SingleChildScrollView(
@@ -46,7 +48,11 @@ class _HomeScreenStateState extends State<HomeScreen> {
                       }),
             SingleChildScrollView(
               scrollDirection: Axis.vertical,child: Column(children: [
-              Section(title: 'New',),
+               GetBuilder<ProductController>(
+                      builder: (productController) => Section(
+                            title: 'New',
+                            items: productController.products,
+                          )),
 
               ]),)
           ],

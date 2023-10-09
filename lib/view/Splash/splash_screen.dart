@@ -20,6 +20,7 @@ class SplashScreen extends StatelessWidget {
     Get.find<UserController>().initialized;
     Get.find<CategoryController>().initialized;
      Get.find<ProductController>().initialized;
+     Get.find<ProductController>().getAllProducts();
     Get.find<CartController>().initialized;
     Get.find<WishlistController>().initialized;
 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:louts_mobile_store/model/product_model.dart';
 import 'package:louts_mobile_store/utils/app_colors.dart';
 import 'package:louts_mobile_store/utils/app_dimensions.dart';
 import 'package:louts_mobile_store/view/product/product_card_widget.dart';
@@ -7,9 +8,9 @@ import 'package:louts_mobile_store/view/product/product_card_widget.dart';
 
 class Section extends StatelessWidget {
   String title;
-  // List<Product> items;
+  List<Product> items;
   Section({super.key, required this.title 
-  // ,required this.items
+  ,required this.items
   } );
 
   @override
@@ -49,13 +50,13 @@ class Section extends StatelessWidget {
           Container(
             height: AppDimensions.height300,
             child: ListView.builder(
-                  itemCount:6
-                  //  items.length
+                  itemCount:
+                   items.length
                    ,
                     scrollDirection: Axis.horizontal,
                     itemBuilder: ((context, index) {
                       return ProductCard(
-                        // product: items[index],
+                        product: items[index],
                       );
                     }))),
 

@@ -21,6 +21,7 @@ class _CategoryBodyWidget extends State<CategoryBodyWidget> {
     Get.find<CategoryController>().getAllCategories();
 
     return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Expanded(
             flex: 1,
@@ -45,7 +46,7 @@ class _CategoryBodyWidget extends State<CategoryBodyWidget> {
         Expanded(
             flex: 3,
             child: SizedBox(
-              height: AppDimensions.height130,
+              // height: AppDimensions.height300,
               child: GetBuilder<CategoryController>(
                 builder: (categoryController) =>
                     ListView(scrollDirection: Axis.vertical, children: [
@@ -69,7 +70,7 @@ Widget MainCategoriesCard(String title, bool isSelected) {
   return Container(
     height: AppDimensions.height60,
     decoration: BoxDecoration(
-      color: isSelected == true ? AppColors.primary : AppColors.lightgrey,
+      color: isSelected == true ? AppColors.secondry : AppColors.lightgrey,
     ),
     child: Row(
       children: [
@@ -135,7 +136,7 @@ class ExpansionTileCard extends StatelessWidget {
       elevation: 1,
       child: Container(
         decoration: BoxDecoration(
-            color: AppColors.primary,
+            // color: AppColors.secondry,
             borderRadius: BorderRadius.circular(AppDimensions.size20)),
         child: Column(
           children: [
@@ -144,7 +145,7 @@ class ExpansionTileCard extends StatelessWidget {
               child: Container(
                 padding: EdgeInsets.only(top: AppDimensions.height5),
                 decoration: BoxDecoration(
-                    color: AppColors.primary,
+                    // color: AppColors.secondry,
                     borderRadius: BorderRadius.circular(AppDimensions.size20)),
                 width: double.maxFinite,
                 child: Center(child: Image.asset(image, fit: BoxFit.fill)),
