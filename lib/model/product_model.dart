@@ -55,7 +55,7 @@ class Product {
     return Product(
       id: json["id"],
       name: json["name"],
-      discount: double.parse(json['discount'].toString()),
+      discount: double.parse(json['discount'].toString())??0.0,
       price: double.parse(json["price"].toString()),
       brandName: json['brandName'],
       productImage: json["productImage"],

@@ -49,280 +49,306 @@ class ProductScreen extends StatelessWidget {
             Get.find<ProductController>().getProductsFromBrand(
                 Get.find<ProductController>().productItme.brandId!);
 
-            return Hero(
-              tag: 'product-tag',
-              child: Container(
-                height: AppDimensions.screenHeight,
-                width: AppDimensions.screenWidth,
-                color: AppColors.secondry,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Expanded(
-                      child: CustomScrollView(
-                        slivers: [
-                          SliverAppBar(
-                              backgroundColor: AppColors.secondry,
-                              pinned: false,
-                              floating: true,
-                              expandedHeight: 300,
-                              automaticallyImplyLeading: false,
-                              title: Expanded(
-                                  child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  IconButton(
-                                    onPressed: () {
-                                      Get.back();
-                                    },
-                                    icon: Icon(
-                                      Icons.close_rounded,
-                                      color: AppColors.secondry,
-                                    ),
-                                  ),
-                                  Spacer(),
-                                  Stack(
-                                    children: [
-                                      InkWell(
-                                        onTap: () {
-                                          // Get.toNamed(RouteApp.getMainPage());
-                                          // AppConstants.navigationKey.currentState!
-                                          //     .setPage(2);
-                                        },
-                                        child: CircleAvatar(
-                                          backgroundColor: AppColors.primary,
-                                          radius: 20,
-                                          child: Icon(
-                                            Icons.shopping_cart,
-                                            color: AppColors.secondry,
-                                            size: 22,
-                                          ),
-                                        ),
-                                      ),
-                                      Positioned(
-                                          top: 3,
-                                          right: 3,
-                                          child: CircleAvatar(
-                                            backgroundColor: Colors.red,
-                                            radius: 7,
-                                            child: Text(
-                                              '2',
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.w200,
-                                                  fontSize: 12,
-                                                  color: AppColors.secondry),
-                                            ),
-                                          ))
-                                    ],
-                                  ),
-                                ],
-                              )),
-                              flexibleSpace: FlexibleSpaceBar(
-                                expandedTitleScale: 1,
-                                centerTitle: true,
-                                background: Container(
-                                  height: 300,
-                                  width: 200,
-                                  color: AppColors.secondry,
-                                  child: Column(
-                                    children: [
-                                      Stack(
-                                        children: [
-                                          CarouselSliderWidget(
-                                            // product image slider
-                                            size: 300,
-                                            autoplay: false,
-                                            photos:
-                                                Get.find<ProductController>()
-                                                    .productItme
-                                                    .productImages,
-                                          ),
-                                          // Positioned(
-                                          //   top: 5,
-                                          //   right: 5,
-                                          //   child: CircleAvatar(
-                                          //       backgroundColor: AppColors.primary,
-                                          //       radius: 20,
-                                          //       child: Icon(
-                                          //         Icons.favorite_border,
-                                          //         color: AppColors.secondry,
-                                          //         size: 22,
-                                          //       )),
-                                          // ),
-
-                                          Positioned(
-                                            bottom: 5,
-                                            right: 5,
-                                            child: InkWell(
-                                              //TODO user id
-                                              onTap: () => Get.find<
-                                                      WishlistController>()
-                                                  .addToWishlist(
-                                                      1,
-                                                      1,
-                                                      Get.find<
-                                                              ProductController>()
-                                                          .productItme
-                                                          .id),
-                                              child: CircleAvatar(
-                                                  backgroundColor:
-                                                      AppColors.primary,
-                                                  radius: 20,
-                                                  child: Icon(
-                                                    Icons.favorite_border,
-                                                    color: AppColors.secondry,
-                                                    size: 22,
-                                                  )),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ],
+            return Container(
+              height: AppDimensions.screenHeight,
+              width: AppDimensions.screenWidth,
+              color: AppColors.secondry,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    child: CustomScrollView(
+                      slivers: [
+                        SliverAppBar(
+                            backgroundColor: AppColors.secondry,
+                            pinned: false,
+                            floating: true,
+                            expandedHeight: 300,
+                            automaticallyImplyLeading: false,
+                            title: Expanded(
+                                child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                IconButton(
+                                  onPressed: () {
+                                    Get.back();
+                                  },
+                                  icon: Icon(
+                                    Icons.close_rounded,
+                                    color: AppColors.primary,
                                   ),
                                 ),
-                              )),
-                          SliverList(
-                              delegate: SliverChildListDelegate([
-                            Container(
-                              padding: EdgeInsets.all(10),
-                              margin: EdgeInsets.only(left: 5, right: 5),
-                              color: AppColors.secondry,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  // Text(
-                                  //   "${Get.find<ProductController>().productsBrand[0].brandName}", //product prand is here
-                                  //   style: TextStyle(
-                                  //       fontWeight: FontWeight.w600, fontSize: 16),
-                                  // ),
-                                  SizedBox(
-                                    height: 5,
-                                  ),
-                                  Text(
-                                    Get.find<ProductController>()
-                                        .productItme
-                                        .name!, //product name is here
-                                    style: TextStyle(
-                                        color: AppColors.primary,
-                                        fontWeight: FontWeight.w400,
-                                        fontSize: 16),
-                                  ),
-                                  SizedBox(
-                                    height: 5,
-                                  ),
-                                  Row(
-                                    children: [
-                                      Get.find<ProductController>()
-                                                  .isThereDiscount ==
-                                              true
-                                          ? Expanded(
-                                              flex: 1,
-                                              child: Row(
-                                                children: [
-                                                  Text(
-                                                    "${Get.find<ProductController>().productItme.price!.toStringAsFixed(2) } USD", //old price
-                                                    style: TextStyle(
-                                                        decoration:
-                                                            TextDecoration
-                                                                .lineThrough,
-                                                        color: AppColors
-                                                            .secondryAccent,
-                                                        fontWeight:
-                                                            FontWeight.w300,
-                                                        fontSize: AppDimensions
-                                                            .size20),
-                                                  ),
-                                                ],
-                                              ))
-                                          : Container(),
-                                      Expanded(
-                                        flex: 2,
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            // Spacer(
-                                            //   flex: 1,
-                                            // ),
-                                            Text(
-                                              "${Get.find<ProductController>().priceAfterDiscount(Get.find<ProductController>().productItme.price!, Get.find<ProductController>().productItme.discount!).toStringAsFixed(2)} USD",
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.w600,
-                                                  fontSize:
-                                                      AppDimensions.size20),
-                                            ),
-                                            
-                                            Get.find<ProductController>()
-                                                        .isThereDiscount ==
-                                                    true //is there discoutn cond
-                                                ? Container(
-                                                    // margin: EdgeInsets.only(right: ),
-                                                    padding: EdgeInsets.all(5),
-                                                    decoration: BoxDecoration(
-                                                        border: Border.all(
-                                                          color: AppColors
-                                                              .primary,
-                                                          width: 1,
-                                                        ),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(10)),
-                                                    child: Text(
-                                                      "${Get.find<ProductController>().productItme.discount!.toInt()}% OFF", // discount number
-                                                      style: TextStyle(
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                          fontSize:
-                                                              AppDimensions
-                                                                  .size15),
-                                                    ),
-                                                  )
-                                                : Container()
-                                          ],
+                                Spacer(),
+                                Stack(
+                                  children: [
+                                    InkWell(
+                                      onTap: () {
+                                        // Get.toNamed(RouteApp.getMainPage());
+                                        // AppConstants.navigationKey.currentState!
+                                        //     .setPage(2);
+                                      },
+                                      child: CircleAvatar(
+                                        backgroundColor: AppColors.grey,
+                                        radius: 20,
+                                        child: Icon(
+                                          Icons.shopping_cart,
+                                          color: AppColors.primary,
+                                          size: 22,
                                         ),
                                       ),
-                                    ],
-                                  ),
+                                    ),
+                                    Positioned(
+                                        top: 3,
+                                        right: 3,
+                                        child: CircleAvatar(
+                                          backgroundColor: Colors.red,
+                                          radius: 7,
+                                          child: Text(
+                                            '2',
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.w200,
+                                                fontSize: 12,
+                                                color: AppColors.secondry),
+                                          ),
+                                        ))
+                                  ],
+                                ),
+                              ],
+                            )),
+                            flexibleSpace: FlexibleSpaceBar(
+                              expandedTitleScale: 1,
+                              centerTitle: true,
+                              background: Container(
+                                height: 300,
+                                width: 200,
+                                color: AppColors.secondry,
+                                child: Column(
+                                  children: [
+                                    Stack(
+                                      children: [
+                                        CarouselSliderWidget(
+                                          // product image slider
+                                          size: 300,
+                                          autoplay: false,
+                                          photos:
+                                              Get.find<ProductController>()
+                                                  .productItme
+                                                  .productImages,
+                                        ),
+                                        // Positioned(
+                                        //   top: 5,
+                                        //   right: 5,
+                                        //   child: CircleAvatar(
+                                        //       backgroundColor: AppColors.primary,
+                                        //       radius: 20,
+                                        //       child: Icon(
+                                        //         Icons.favorite_border,
+                                        //         color: AppColors.secondry,
+                                        //         size: 22,
+                                        //       )),
+                                        // ),
 
-                                  SizedBox(
-                                    height: 5,
-                                  ),
-                                  Divider(),
-                                  SellerCard(),
-                                  Divider(),
-                                  ProductDetailCard(
-                                      overview: Get.find<ProductController>()
-                                          .productItme
-                                          .description!),
-                                  GetBuilder<ProductController>(
-                                      builder: (productController) => Section(
-                                            title:
-                                                'More from ${Get.find<ProductController>().productsBrand[0].brandName}',
-                                            items:
-                                                productController.productsBrand,
-                                          )),
-                                  GetBuilder<ProductController>(
-                                      builder: (productController) => Section(
-                                            title: 'Similar products',
-                                            items: productController.products,
-                                          )),
-                                ],
+                                        Positioned(
+                                          bottom: 5,
+                                          right: 5,
+                                          child: InkWell(
+                                            //TODO user id
+                                            onTap: () => Get.find<
+                                                    WishlistController>()
+                                                .addToWishlist(
+                                                    1,
+                                                    1,
+                                                    Get.find<
+                                                            ProductController>()
+                                                        .productItme
+                                                        .id),
+                                            child: CircleAvatar(
+                                                backgroundColor:
+                                                    AppColors.grey,
+                                                radius: 20,
+                                                child: Icon(
+                                                  Icons.favorite_border,
+                                                  color: AppColors.primary,
+                                                  size: 22,
+                                                )),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
                               ),
-                            )
-                          ]))
-                        ],
-                      ),
+                            )),
+                        SliverList(
+                            delegate: SliverChildListDelegate([
+                          Container(
+                            padding: EdgeInsets.all(10),
+                            margin: EdgeInsets.only(left: 5, right: 5),
+                            color: AppColors.secondry,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "${Get.find<ProductController>().productsBrand[0].brandName}", //product prand is here
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w600, fontSize: 16),
+                                ),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                Text(
+                                  Get.find<ProductController>()
+                                      .productItme
+                                      .name!, //product name is here
+                                  style: TextStyle(
+                                      color: AppColors.primary,
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 16),
+                                ),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                Row(
+                                  children: [
+                                    Get.find<ProductController>()
+                                                .isThereDiscount ==
+                                            true
+                                        ? Expanded(
+                                            flex: 1,
+                                            child: Row(
+                                              children: [
+                                                Text(
+                                                  "${Get.find<ProductController>().productItme.price!.toStringAsFixed(2)} USD", //old price
+                                                  style: TextStyle(
+                                                      decoration:
+                                                          TextDecoration
+                                                              .lineThrough,
+                                                      color: AppColors
+                                                          .secondryAccent,
+                                                      fontWeight:
+                                                          FontWeight.w300,
+                                                      fontSize: AppDimensions
+                                                          .size20),
+                                                ),
+                                              ],
+                                            ))
+                                        : Container(),
+                                    Expanded(
+                                      flex: 2,
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          // Spacer(
+                                          //   flex: 1,
+                                          // ),
+                                          Text(
+                                            "${Get.find<ProductController>().priceAfterDiscount(Get.find<ProductController>().productItme.price!, Get.find<ProductController>().productItme.discount!).toStringAsFixed(2)} USD",
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.w600,
+                                                fontSize:
+                                                    AppDimensions.size20),
+                                          ),
+
+                                          Get.find<ProductController>()
+                                                      .isThereDiscount ==
+                                                  true //is there discoutn cond
+                                              ? Container(
+                                                  // margin: EdgeInsets.only(right: ),
+                                                  padding: EdgeInsets.all(5),
+                                                  decoration: BoxDecoration(
+                                                      border: Border.all(
+                                                        color:
+                                                            AppColors.primary,
+                                                        width: 1,
+                                                      ),
+                                                      borderRadius:
+                                                          BorderRadius
+                                                              .circular(10)),
+                                                  child: Text(
+                                                    "${Get.find<ProductController>().productItme.discount!.toInt()}% OFF", // discount number
+                                                    style: TextStyle(
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                        fontSize:
+                                                            AppDimensions
+                                                                .size15),
+                                                  ),
+                                                )
+                                              : Container()
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                Divider(),
+                                SellerCard(),
+                                Divider(),
+                                ProductDetailCard(
+                                    overview: Get.find<ProductController>()
+                                        .productItme
+                                        .description!),
+
+                                FutureBuilder(
+                                    future: Get.find<ProductController>()
+                                        .getProductsFromBrand(
+                                            Get.find<ProductController>()
+                                                .productItme
+                                                .brandId!),
+                                    builder: (context, snapshot) {
+                                      // Container(height: 20,width: 20,color: Colors.amber,)
+                                      if (snapshot.connectionState ==
+                                          ConnectionState.waiting) {
+                                        return Center(
+                                          child: CircularProgressIndicator(),
+                                        );
+                                      }
+                                      if (snapshot.hasError) {
+                                        return Text("errror");
+                                      }
+                                      return Section(
+                                        title:
+                                            'More from ${Get.find<ProductController>().productsBrand[0].brandName}',
+                                        items: Get.find<ProductController>()
+                                            .productsBrand,
+                                      );
+                                    }
+
+                                    // GetBuilder<ProductController>(
+                                    //     builder: (productController) =>
+                                    //         Section(
+                                    //           title:
+                                    //               'More from ${Get.find<ProductController>().productsBrand[0].brandName}',
+                                    //           items: productController
+                                    //               .productsBrand,
+                                    //         )),
+                                    ),
+
+                                GetBuilder<ProductController>(
+                                    builder: (productController) => Section(
+                                          title: 'Similar products',
+                                          items: productController.products,
+                                        )),
+                              ],
+                            ),
+                          )
+                        ]))
+                      ],
                     ),
-                    // Expanded(
-                    //   child: Container(
-                    //     height: 200,
-                    //     color: Colors.red,
-                    //     width: 200,
-                    //   ),
-                    // ),
-                    ProductBottomBar()
-                  ],
-                ),
+                  ),
+                  // Expanded(
+                  //   child: Container(
+                  //     height: 200,
+                  //     color: Colors.red,
+                  //     width: 200,
+                  //   ),
+                  // ),
+                  ProductBottomBar()
+                ],
               ),
             );
           }
@@ -408,24 +434,29 @@ class _ProductBottomBarState extends State<ProductBottomBar> {
                   });
                 },
                 child: Container(
+                  
                   padding:
                       EdgeInsets.only(top: 5, bottom: 5, left: 10, right: 10),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(5),
-                      color: AppColors.primary),
+                      border: Border.all(
+                        color: AppColors.primary,
+                        width: 1,
+                      ),
+                      color: AppColors.secondry),
                   child: Column(
                     children: [
                       Text(
                         "QTY",
                         style: TextStyle(
-                            color: AppColors.secondry,
+                            color: AppColors.primary,
                             fontWeight: FontWeight.w500,
                             fontSize: 12),
                       ),
                       Text(
                         _QTY.toString(),
                         style: TextStyle(
-                            color: AppColors.secondry,
+                            color: AppColors.primary,
                             fontWeight: FontWeight.w500,
                             fontSize: 18),
                       )
@@ -447,7 +478,12 @@ class _ProductBottomBarState extends State<ProductBottomBar> {
                       padding: EdgeInsets.all(10),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(5),
-                          color: AppColors.primary),
+                          color: AppColors.primary,
+                           border: Border.all(
+                        color: AppColors.primary,
+                        width: 1,
+                      ),
+                          ),
                       child: _isAddingToCart == false
                           ? Row(
                               mainAxisAlignment: MainAxisAlignment.center,

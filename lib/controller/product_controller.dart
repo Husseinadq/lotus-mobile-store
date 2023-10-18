@@ -62,14 +62,15 @@ print("product item = ${productItme.name}");
     return _productItem[0];
   }
 
-  Future<void> getProductsFromBrand(int id) async {
+  Future getProductsFromBrand(int id) async {
     Response response = await productRepo.getProductsFromBrand({"brandId": id});
+    print('response status ${response.statusCode}');
     if (response.statusCode == 200) {
       print(response.body);
       _productsBrand = [];
       _productsBrand.addAll(ProductsModel.fromJson(response.body).items);
       _productsBrand.forEach((element) {
-        element.name;
+       print( "product brand "+ element.name!);
       });
       _isLoadedBrandProducts = true;
 
