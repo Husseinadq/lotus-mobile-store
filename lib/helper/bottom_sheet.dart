@@ -19,13 +19,13 @@ class BottomSheets {
     return (await showModalBottomSheet(
             // barrierColor: AppColors.grey,
             context: Get.overlayContext!,
-            backgroundColor: AppColors.primary,
+            backgroundColor: AppColors.secondry,
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
             builder: ((context) => Expanded(
                   child: Container(
                     decoration: BoxDecoration(
-                        color: AppColors.primary,
+                        color: AppColors.secondry,
                         borderRadius: BorderRadius.circular(25)),
                     // height: 300,
                     child: Column(

@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:louts_mobile_store/model/photo.dart';
 
 // ignore: must_be_immutable
 class CarouselSliderWidget extends StatelessWidget {
@@ -14,7 +15,7 @@ class CarouselSliderWidget extends StatelessWidget {
 
   double size;
   bool autoplay;
-  List<String>? photos;
+  List<Photo>? photos;
 
   List<String> urls = [
     'https://cdn-images-1.medium.com/max/2000/1*GqdzzfB_BHorv7V2NV7Jgg.jpeg',

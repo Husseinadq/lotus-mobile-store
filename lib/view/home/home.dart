@@ -19,7 +19,6 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenStateState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    
     return SafeArea(
         child: Scaffold(
       body: SingleChildScrollView(
@@ -28,33 +27,38 @@ class _HomeScreenStateState extends State<HomeScreen> {
             AppBarWidget(),
             CarouselSliderWidget(size: 200, autoplay: true),
             FutureBuilder(
-                      future: Get.find<CategoryController>().getAllCategories(),
-                      builder: (context, snapshot) {
-                        if (snapshot.connectionState ==
-                            ConnectionState.waiting) {
-                          return Center(
-                            child: CircularProgressIndicator(
-                              color: AppColors.secondry,
-                            ),
-                          );
-                        }
-                        if (snapshot.hasError) {
-                          return Text("error");
-                        } else {
-                          return CategoryListView(
-                              categories: Get.find<CategoryController>()
-                                  .allCategoriesList);
-                        }
-                      }),
+                future: Get.find<CategoryController>().getAllCategories(),
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return Center(
+                      child: CircularProgressIndicator(
+                        color: AppColors.secondry,
+                      ),
+                    );
+                  }
+                  if (snapshot.hasError) {
+                    return Text("error");
+                  } else {
+                    return CategoryListView(
+                        categories:
+                            Get.find<CategoryController>().allCategoriesList);
+                  }
+                }),
             SingleChildScrollView(
-              scrollDirection: Axis.vertical,child: Column(children: [
-               GetBuilder<ProductController>(
-                      builder: (productController) => Section(
-                            title: 'New',
-                            items: productController.products,
-                          )),
-
-              ]),)
+              scrollDirection: Axis.vertical,
+              child: Column(children: [
+                GetBuilder<ProductController>(
+                    builder: (productController) => Section(
+                          title: 'New',
+                          items: productController.products,
+                        )),
+                        GetBuilder<ProductController>(
+                    builder: (productController) => Section(
+                          title: 'Addiss',
+                          items: productController.products,
+                        )),
+              ]),
+            )
           ],
         ),
       ),

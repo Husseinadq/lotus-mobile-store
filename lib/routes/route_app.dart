@@ -2,6 +2,9 @@ import 'package:get/get.dart';
 import 'package:louts_mobile_store/view/Splash/splash_screen.dart';
 import 'package:louts_mobile_store/view/home/start.dart';
 
+import '../view/product/product_screen.dart';
+import '../view/signin/login_screen.dart';
+
 class RouteApp {
   static const String _initial = "/";
   static const String _start = "/start";
@@ -55,11 +58,11 @@ class RouteApp {
         page: () {
           return const StartScreen();
         }),
-    // GetPage(
-    //     name: getLogin(),
-    //     page: () {
-    //       return LoginScreen();
-    //     }),
+    GetPage(
+        name: getLogin(),
+        page: () {
+          return LoginScreen();
+        }),
     // GetPage(
     //     name: getSignUp(),
     //     page: () {
@@ -88,7 +91,7 @@ class RouteApp {
     //       return ProfileScreen();
     //     }),
     // GetPage(name: getSubHome(), page: () => SubHomeScreen()),
-    // GetPage(name: getProduct(), page: () => ProductScreen()),
+    GetPage(name: getProduct(), page: () => ProductScreen()),
     // GetPage(name: getPersonalDetail(), page: () => PersonalDetailsScreen()),
     // GetPage(name: getSearchBar(), page: () => SearchBarScrean()),
     // GetPage(name: getSearchResult(), page: () => SearchResultsScreen()),

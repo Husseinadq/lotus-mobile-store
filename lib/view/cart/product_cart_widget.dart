@@ -21,8 +21,8 @@ class ProductCartWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () =>
-          Get.find<ProductController>().getSinglProducts(item.productId!),
+      // onTap: () =>
+      //     Get.find<ProductController>().getSinglProducts(item.productId!),
       child: Container(
         margin: EdgeInsets.only(top: 10, left: 10, right: 10),
         decoration: BoxDecoration(
@@ -38,7 +38,7 @@ class ProductCartWidget extends StatelessWidget {
                 ),
               )
             ],
-            color: Colors.black),
+            color: AppColors.primary),
         child: Slidable(
           key: const ValueKey(0),
           endActionPane: ActionPane(motion: BehindMotion(), children: [
@@ -48,7 +48,7 @@ class ProductCartWidget extends StatelessWidget {
                   padding: EdgeInsets.symmetric(
                       horizontal: AppDimensions.width20,
                       vertical: AppDimensions.height30),
-                  color: AppColors.secondry,
+                  color: AppColors.primary,
                   child: Icon(
                     Icons.share,
                     color: Colors.white,
@@ -77,7 +77,7 @@ class ProductCartWidget extends StatelessWidget {
                 horizontal: AppDimensions.width10, vertical: AppDimensions.height10),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(AppDimensions.size20),
-                color: AppColors.primary),
+                color: AppColors.secondry),
             height: AppDimensions.height100,
             width: double.maxFinite,
             child: Row(
@@ -85,8 +85,9 @@ class ProductCartWidget extends StatelessWidget {
                 Container(
                     width: 100,
                     height: 120,
+                    padding: EdgeInsets.all(5),
                     decoration: BoxDecoration(
-                        color: AppColors.primary,
+                        color: AppColors.secondry,
                         borderRadius:
                             BorderRadius.circular(AppDimensions.size20)),
                     child: Image.network(

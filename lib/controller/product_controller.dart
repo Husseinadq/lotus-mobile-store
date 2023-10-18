@@ -15,6 +15,11 @@ class ProductController extends GetxController {
 // late ApiRespons apiRespons;
   List<Product> _products = [];
   List<ProductsItem> _productItem = [];
+  int _selectedProduct=0;
+  int get getSelectedProduct =>_selectedProduct;
+   void setSelectedProduct(int productId){
+_selectedProduct=productId;
+  }
   List<Product> _productsBrand = [];
   List<TitleItem> _searchTitlesResults = [];
   List<Product> _searchProductResults = [];
@@ -43,18 +48,18 @@ class ProductController extends GetxController {
     }
   }
 
-  Future<void> getSinglProducts(int id) async {
+  Future<ProductsItem> getSinglProduct(int id) async {
     Response response = await productRepo.getSingleProducts({"id": id});
     if (response.statusCode == 200) {
       print(response.body);
       _productItem = [];
-      _productItem.add(Products.fromJson(response.body).items[0]);
+       _productItem.add(Products.fromJson(response.body).items[0]);
 
       _isLoadedSingleProduct = true;
-      Get.toNamed(RouteApp.getProduct()); //move to product detail route
-
+print("product item = ${productItme.name}");
       update();
     }
+    return _productItem[0];
   }
 
   Future<void> getProductsFromBrand(int id) async {

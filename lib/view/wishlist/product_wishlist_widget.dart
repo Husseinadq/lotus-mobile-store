@@ -43,10 +43,10 @@ class ProductWishlistWidget extends StatelessWidget {
                 padding: EdgeInsets.symmetric(
                     horizontal: AppDimensions.width20,
                     vertical: AppDimensions.height30),
-                color: AppColors.secondry,
+                color: AppColors.primary,
                 child: Icon(
                   Icons.share,
-                  color: Colors.white,
+                  color: AppColors.secondry,
                   size: 30,
                 )),
           ),
@@ -58,10 +58,10 @@ class ProductWishlistWidget extends StatelessWidget {
               padding: EdgeInsets.symmetric(
                   horizontal: AppDimensions.width30,
                   vertical: AppDimensions.height30),
-              color: AppColors.secondry,
+              color: AppColors.primary,
               child: Icon(
                 Icons.delete,
-                color: AppColors.primary,
+                color: AppColors.secondry,
                 size: 30,
               ),
             ),
@@ -72,7 +72,7 @@ class ProductWishlistWidget extends StatelessWidget {
               horizontal: AppDimensions.width10, vertical: AppDimensions.height10),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(AppDimensions.size20),
-              color: AppColors.primary),
+              color: AppColors.secondry),
           height: AppDimensions.height100,
           width: double.maxFinite,
           child: Row(
@@ -80,8 +80,9 @@ class ProductWishlistWidget extends StatelessWidget {
               Container(
                   width: 100,
                   height: 120,
+                  padding: EdgeInsets.all(5),
                   decoration: BoxDecoration(
-                      color: AppColors.primary,
+                      color: AppColors.secondry,
                       borderRadius: BorderRadius.circular(AppDimensions.size20)),
                   child: Image.network(
                     item.productImage.toString(),
@@ -118,12 +119,12 @@ class ProductWishlistWidget extends StatelessWidget {
                             padding: EdgeInsets.all(10),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(15),
-                              color: AppColors.secondry,
+                              color: AppColors.primary,
                             ),
                             child: Text(
                               "Add to Cart",
                               style: TextStyle(
-                                  color: AppColors.primary,
+                                  color: AppColors.secondry,
                                   fontSize: 18,
                                   fontWeight: FontWeight.w500),
                             ),

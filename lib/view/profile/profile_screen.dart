@@ -41,13 +41,14 @@ class ProfileScreen extends StatelessWidget {
                             builder: (userController) => Row(
                               children: [
                                 Container(
+                                  // padding: EdgeInsets.all(AppDimensions.height5),
                                   height: AppDimensions.height75,
                                   decoration: BoxDecoration(
                                       color: AppColors.lightgrey,
                                       borderRadius: BorderRadius.circular(
                                           AppDimensions.size15)),
-                                  child: Image.asset(
-                                    "assets/images/slide1.png",
+                                  child: Image.network(
+                                    "https://avatars.githubusercontent.com/u/78476938?v=4",
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -111,12 +112,12 @@ class ProfileScreen extends StatelessWidget {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceAround,
                                 children: [
-                                  GestureDetector(
+                                  InkWell(
                                       onTap: () =>
                                           Get.toNamed(RouteApp.getLogin()),
                                       child:
                                           circleBoutton("Login", Icons.person)),
-                                  GestureDetector(
+                                  InkWell(
                                       onTap: () =>
                                           Get.toNamed(RouteApp.getSignUp()),
                                       child: circleBoutton(

@@ -88,7 +88,7 @@ class ProductsItem {
     });
     categoryId = json['category_id'];
     name = json['name'];
-    price = json['price'];
+    price = double.parse(json['price'].toString()) ;
     brandId = json['brand_id'];
     discount =double.parse( json['discount'].toString());
     supplierId = json['supplier_id'];

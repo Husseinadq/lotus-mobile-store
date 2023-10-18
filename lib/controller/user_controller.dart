@@ -37,23 +37,25 @@ class UserController extends GetxController {
   bool get isConfirm => _isConfirm;
   List<SimpleModel> get states => _states!;
 
-  Future<bool> login(String emailOrmobile, String password) async {
+  Future<bool> login(
+      {required String emailOrmobile, required String password}) async {
     try {
       Response response =
           await userRepo.login({"email": emailOrmobile, "password": password});
       if (response.statusCode == 200) {
         if (response.body['status']) {
-          _user = User(
-              id: 0,
-              firstName: response.body['usre']['first_name'],
-              middleName: response.body['usre']['middle_name'],
-              lastName: response.body['usre']['last_name'],
-              mobile: response.body['usre']['mobile'],
-              email: response.body['usre']['email'],
-              token: response.body['usre']['token']);
+          _user.id = response.body['usre']['id'];
+          _user.firstName = response.body['usre']['first_name'];
+          _user.middleName = response.body['usre']['middle_name'];
+          _user.lastName = response.body['usre']['last_name'];
+          _user.mobile = response.body['usre']['mobile'];
+          _user.email = response.body['usre']['email'];
+          _user.token = response.body['usre']['token'];
           update();
-          print(_user.token);
-
+          snackbar(
+              title: 'Log In',
+              message: 'You have been logged in successfully',
+              color: AppColors.secondry);
           return true;
         }
 
@@ -79,6 +81,10 @@ class UserController extends GetxController {
               mobile: "mobile",
               email: "email",
               token: "token");
+              snackbar(
+              title: 'Log Out',
+              message: 'You have been logged Out successfully',
+              color: AppColors.secondry);
           Get.offAndToNamed(RouteApp.getInitial());
         }
       }
@@ -114,8 +120,6 @@ class UserController extends GetxController {
   Future<bool> editPersonalData(String firstName, String lastName) async {
     return false;
   }
-
- 
 
   /// this function to check if the user is logged in on signed up
   bool isThereUser() {
@@ -193,7 +197,6 @@ class UserController extends GetxController {
       return true;
     } catch (e) {
       //TODO post handel to db
-
     }
     return false;
   }
@@ -206,5 +209,12 @@ class UserController extends GetxController {
   Future<bool> onPaymentSelectSettings() async {
     await BottomSheets.settingBottomeSheet('Select Payment', _payment!);
     return true;
+  }
+
+  snackbar({required title, required message, required color}) {
+    return Get.snackbar(title, message,
+        snackPosition: SnackPosition.BOTTOM,
+        backgroundColor: AppColors.primary,
+        colorText: color);
   }
 }
