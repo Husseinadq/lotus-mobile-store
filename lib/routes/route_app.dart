@@ -3,6 +3,8 @@ import 'package:louts_mobile_store/view/Splash/splash_screen.dart';
 import 'package:louts_mobile_store/view/home/start.dart';
 
 import '../view/product/product_screen.dart';
+import '../view/search/search_bar_screan.dart';
+import '../view/search/search_results_screen.dart';
 import '../view/signin/login_screen.dart';
 
 class RouteApp {
@@ -93,8 +95,8 @@ class RouteApp {
     // GetPage(name: getSubHome(), page: () => SubHomeScreen()),
     GetPage(name: getProduct(), page: () => ProductScreen()),
     // GetPage(name: getPersonalDetail(), page: () => PersonalDetailsScreen()),
-    // GetPage(name: getSearchBar(), page: () => SearchBarScrean()),
-    // GetPage(name: getSearchResult(), page: () => SearchResultsScreen()),
+    GetPage(name: getSearchBar(), page: () => SearchBarScrean()),
+    GetPage(name: getSearchResult(), page: () => SearchResultsScreen()),
     // GetPage(
     //     name: productDetail,
     //     page: () {

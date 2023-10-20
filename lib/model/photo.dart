@@ -3,8 +3,8 @@ class Photo {
   int? id;
   String? name;
   Photo({
-    this.id,
-    this.name,
+    required this.id,
+    required this.name,
   });
   
 

@@ -85,7 +85,7 @@ class ProductCartWidget extends StatelessWidget {
                 Container(
                     width: 100,
                     height: 120,
-                    padding: EdgeInsets.all(5),
+                    padding:const EdgeInsets.all(5),
                     decoration: BoxDecoration(
                         color: AppColors.secondry,
                         borderRadius:

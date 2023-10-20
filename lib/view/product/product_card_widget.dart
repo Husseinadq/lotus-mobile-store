@@ -10,7 +10,7 @@ import 'package:louts_mobile_store/utils/app_dimensions.dart';
 
 class ProductCard extends StatelessWidget {
   final Product product;
-  ProductCard({super.key,
+    ProductCard({super.key,
    required this.product
   });
 

@@ -4,7 +4,6 @@ import 'package:louts_mobile_store/data/repository/product_repo.dart';
 import 'package:louts_mobile_store/model/product_model.dart';
 import 'package:louts_mobile_store/model/products.dart';
 import 'package:louts_mobile_store/model/search_model.dart';
-import 'package:louts_mobile_store/routes/route_app.dart';
 
 class ProductController extends GetxController {
   final ProductRepo productRepo;
@@ -64,14 +63,9 @@ print("product item = ${productItme.name}");
 
   Future getProductsFromBrand(int id) async {
     Response response = await productRepo.getProductsFromBrand({"brandId": id});
-    print('response status ${response.statusCode}');
     if (response.statusCode == 200) {
-      print(response.body);
       _productsBrand = [];
       _productsBrand.addAll(ProductsModel.fromJson(response.body).items);
-      _productsBrand.forEach((element) {
-       print( "product brand "+ element.name!);
-      });
       _isLoadedBrandProducts = true;
 
       update();

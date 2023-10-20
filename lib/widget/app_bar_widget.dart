@@ -1,5 +1,7 @@
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:louts_mobile_store/routes/route_app.dart';
 import 'package:louts_mobile_store/utils/app_colors.dart';
 import 'package:louts_mobile_store/utils/app_dimensions.dart';
 
@@ -28,7 +30,7 @@ class AppBarWidget extends StatelessWidget {
             ),
             Expanded(
               child: InkWell(onTap: () {
-                //  Get.toNamed(RouteHelper.getSearchBar();
+                 Get.toNamed(RouteApp.getSearchBar());
                  },
                 child: Container(
                     margin: EdgeInsets.only(left: 5, top: 5,right: 5),
