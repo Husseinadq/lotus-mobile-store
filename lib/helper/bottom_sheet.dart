@@ -55,7 +55,7 @@ class BottomSheets {
                             child: ListView.builder(
                                 itemCount: items.length,
                                 itemBuilder: (context, index) =>
-                                    GestureDetector(
+                                    InkWell(
                                         onTap: () => Get.find<UserController>()
                                             .setSettingState(items[index].id!),
                                         child: _textAndselected(

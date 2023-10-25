@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:louts_mobile_store/controller/cart_controller.dart';
 import 'package:louts_mobile_store/controller/category_controller.dart';
 import 'package:louts_mobile_store/controller/product_controller.dart';
+import 'package:louts_mobile_store/controller/setting_controller.dart';
 import 'package:louts_mobile_store/controller/user_controller.dart';
 import 'package:louts_mobile_store/controller/wishlist_controller.dart';
 import 'package:louts_mobile_store/data/api/api_clint.dart';
@@ -35,4 +36,5 @@ Future<void> init() async {
   Get.lazyPut(() => CartController(cartRepo: Get.find()));
   Get.lazyPut(() => WishlistController(wishlistRepo: Get.find()));
   Get.lazyPut(() => CategoryController(categoryRepo: Get.find()));
+  Get.lazyPut(() => SettingController());
 }

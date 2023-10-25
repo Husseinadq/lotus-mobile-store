@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:louts_mobile_store/controller/category_controller.dart';
 import 'package:louts_mobile_store/controller/product_controller.dart';
+import 'package:louts_mobile_store/controller/setting_controller.dart';
 import 'package:louts_mobile_store/utils/app_colors.dart';
 import 'package:louts_mobile_store/widget/app_bar_widget.dart';
 import 'package:louts_mobile_store/widget/carousel_slider_widget.dart';
@@ -61,11 +62,12 @@ class _HomeScreenStateState extends State<HomeScreen> {
             )
           ],
         ),
-      ),floatingActionButton: FloatingActionButton(onPressed: () {
-setState(() {
-          AppColors.primary=Colors.amber;
+      ),
+//       floatingActionButton: FloatingActionButton(onPressed: () {
+// setState(() {
+//          Get.find<SettingController>().writeThemeData(theme: 'black');
 
-});      },),
+// });      },),
     )
     );
   }

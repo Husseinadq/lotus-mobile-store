@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:louts_mobile_store/controller/setting_controller.dart';
 import 'package:louts_mobile_store/controller/user_controller.dart';
 import 'package:louts_mobile_store/routes/route_app.dart';
 import 'package:louts_mobile_store/utils/app_colors.dart';
@@ -70,8 +71,7 @@ class ProfileScreen extends StatelessWidget {
                                       SizedBox(
                                         height: 7,
                                       ),
-                                      Text(
-                                         userController.getUser.email)
+                                      Text(userController.getUser.email)
                                     ],
                                   ),
                                 )
@@ -256,9 +256,12 @@ class ProfileScreen extends StatelessWidget {
                     child: profileItem(Icons.language, "Language")),
                 profileItem(Icons.shield, "Privacy Policy"),
                 profileItem(Icons.notifications, "Notifications"),
+                InkWell(
+                    onTap: ()=>Get.find<SettingController>().onThemeSelectSettings(),
+                    child: profileItem(Icons.color_lens, "Theme")),
                 profileItem(Icons.help, "Help"),
                 Get.find<UserController>().isThereUser()
-                    ? GestureDetector(
+                    ? InkWell(
                         onTap: () {
                           Get.find<UserController>().logOut();
                         },

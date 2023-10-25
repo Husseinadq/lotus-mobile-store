@@ -9,6 +9,7 @@ import 'package:louts_mobile_store/controller/user_controller.dart';
 import 'package:louts_mobile_store/controller/wishlist_controller.dart';
 import 'package:louts_mobile_store/utils/app_colors.dart';
 
+import '../../controller/setting_controller.dart';
 import '/routes/route_app.dart';
 import '/utils/app_dimensions.dart';
 
@@ -23,6 +24,8 @@ class SplashScreen extends StatelessWidget {
      Get.find<ProductController>().getAllProducts();
     Get.find<CartController>().initialized;
     Get.find<WishlistController>().initialized;
+    Get.find<SettingController>().initialized;
+     Get.find<SettingController>().readThemeData();
 
     Timer(const Duration(milliseconds: 1000), () {
       Get.toNamed(RouteApp.getStart());
