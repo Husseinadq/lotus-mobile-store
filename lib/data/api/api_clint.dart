@@ -2,7 +2,8 @@
 import 'package:get/get.dart';
 import '/utils/app_constants.dart';
 
-class ApiClient extends GetConnect implements GetxService {
+class 
+ApiClient extends GetConnect implements GetxService {
   late String token;
   late String appBaseUrl;
 

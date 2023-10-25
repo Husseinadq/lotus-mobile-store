@@ -46,8 +46,8 @@ class ProductScreen extends StatelessWidget {
           }
 
           if (snapshot.hasData) {
-            Get.find<ProductController>().getProductsFromBrand(
-                Get.find<ProductController>().productItme.brandId!);
+            // Get.find<ProductController>().getProductsFromBrand(
+            //     Get.find<ProductController>().productItme.brandId!);
 
             return Container(
               height: AppDimensions.screenHeight,
@@ -189,7 +189,7 @@ class ProductScreen extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  "${Get.find<ProductController>().productsBrand[0].brandName}", //product prand is here
+                                  "${Get.find<ProductController>().productItme.brandId}", //product prand is here
                                   style: TextStyle(
                                       fontWeight: FontWeight.w600, fontSize: 16),
                                 ),

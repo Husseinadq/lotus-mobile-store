@@ -89,13 +89,13 @@ class CartScreen extends StatelessWidget {
                   width: double.maxFinite,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      color: Colors.black),
+                      color: AppColors.primary),
                   child: Center(
                       child: Get.find<CartController>().totalItem != 0
                           ? Text(
-                               "Checkout " +
+                              "Checkout " +
                                   "${Get.find<CartController>().totalItem} Items",
-                              
+                              style: TextStyle(color: AppColors.secondry),
                             )
                           : Center(
                               child: CircularProgressIndicator(

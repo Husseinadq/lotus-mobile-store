@@ -63,10 +63,10 @@ class ProductCartWidget extends StatelessWidget {
                 padding: EdgeInsets.symmetric(
                     horizontal: AppDimensions.width30,
                     vertical: AppDimensions.height30),
-                color: AppColors.secondry,
+                color: AppColors.primary,
                 child: Icon(
                   Icons.delete,
-                  color: AppColors.primary,
+                  color: AppColors.secondry,
                   size: 30,
                 ),
               ),

@@ -33,7 +33,7 @@ class ProductWishlistWidget extends StatelessWidget {
               ),
             )
           ],
-          color: Colors.black),
+          color: AppColors.primary),
       child: Slidable(
         key: const ValueKey(0),
         endActionPane: ActionPane(motion: BehindMotion(), children: [
@@ -50,7 +50,7 @@ class ProductWishlistWidget extends StatelessWidget {
                   size: 30,
                 )),
           ),
-          GestureDetector(
+          InkWell(
             onTap: () {
               Get.find<WishlistController>().removeFromWishlist(item.id!);
             },
@@ -112,7 +112,7 @@ class ProductWishlistWidget extends StatelessWidget {
                             margin: EdgeInsets.only(left: 5),
                             child: Text("\$${item.price}")),
                         // ),
-                        GestureDetector( onTap: (){
+                        InkWell( onTap: (){
                           Get.find<CartController>().addToCart(1, 4, 1);
                         },
                           child: Container(

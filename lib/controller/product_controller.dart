@@ -55,7 +55,6 @@ _selectedProduct=productId;
        _productItem.add(Products.fromJson(response.body).items[0]);
 
       _isLoadedSingleProduct = true;
-print("product item = ${productItme.name}");
       update();
     }
     return _productItem[0];

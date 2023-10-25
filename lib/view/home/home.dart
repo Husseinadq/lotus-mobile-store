@@ -61,7 +61,12 @@ class _HomeScreenStateState extends State<HomeScreen> {
             )
           ],
         ),
-      ),
-    ));
+      ),floatingActionButton: FloatingActionButton(onPressed: () {
+setState(() {
+          AppColors.primary=Colors.amber;
+
+});      },),
+    )
+    );
   }
 }

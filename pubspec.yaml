@@ -42,6 +42,7 @@ dependencies:
   scroll_indicator: ^0.0.3
   curved_labeled_navigation_bar: ^2.0.2
   carousel_slider: ^4.2.1
+  shared_preferences: ^2.2.2
   # dots_indicator: 
   # get:
 

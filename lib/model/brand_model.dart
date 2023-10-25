@@ -56,7 +56,7 @@ class Brand {
     return Brand(
       id: json['id'] as int,
       name: json['name'] as String,
-      imageUrl: json['imageUrl'] as String,
+      imageUrl: json['logo'],
     );
   }
 
